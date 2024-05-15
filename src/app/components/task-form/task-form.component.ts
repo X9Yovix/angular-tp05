@@ -1,14 +1,16 @@
 import { Component, OnInit } from '@angular/core';
+import { Task } from "../../constants/tasks.interface"
 
 @Component({
   selector: 'app-task-form',
   templateUrl: './task-form.component.html',
   styleUrl: './task-form.component.css'
 })
+
 export class TaskFormComponent implements OnInit {
-  tasks: string[] = [];
-  newTask: string = "";
-  
+  tasks: Task[] = []
+  newTask: string = ""
+
   constructor() { }
 
   ngOnInit(): void {
@@ -16,8 +18,13 @@ export class TaskFormComponent implements OnInit {
 
   addTask() {
     if (this.newTask.trim() !== "") {
-      this.tasks.push(this.newTask);
-      this.newTask = "";
+      const newTask: Task = {
+        name: this.newTask,
+        completed: false
+      }
+
+      this.tasks.push(newTask)
+      this.newTask = ""
     }
   }
 }
