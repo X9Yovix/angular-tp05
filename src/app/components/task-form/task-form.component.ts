@@ -8,10 +8,11 @@ import { Component, OnInit } from '@angular/core';
 export class TaskFormComponent implements OnInit {
   tasks: string[] = [];
   newTask: string = "";
+  
   constructor() { }
+
   ngOnInit(): void {
   }
-
 
   addTask() {
     if (this.newTask.trim() !== "") {
